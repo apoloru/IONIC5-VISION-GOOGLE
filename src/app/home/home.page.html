@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let item of items">
+    <img [src]="'data:image/png;base64,' + item.imageData"/>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-list-header>Labels</ion-list-header>
+        <ion-item *ngFor="let label of item.results[0].labelAnnotations">{{label.description}}</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-button (click)="takePhoto()" expand="block">
+    <ion-icon name="camera"></ion-icon>
+  </ion-button>
+  
+</ion-content>
